@@ -38,7 +38,7 @@ const PeopleSection = () => {
 
   const executiveTeam = [
     {
-      name: "Tarang",
+      name: "Tarang Shah",
       role: "AIASA President",
       department: "Artificial Intelligence and Data Science (TY)",
       expertise: ["Computer Vision", "Deep Learning", "Robotics"],
@@ -64,7 +64,7 @@ const PeopleSection = () => {
       gradient: "from-green-500 to-teal-500"
     },
     {
-      name: "Secretary",
+      name: "Khushaboo Shaikh",
       role: "Secretary",
       department: "Artificial Intelligence and Data Science",
       expertise: ["AI Strategy", "Tech Transfer", "Industry Relations"],
@@ -77,7 +77,7 @@ const PeopleSection = () => {
       gradient: "from-cyan-500 to-blue-500"
     },
     {
-      name: "Treasurer",
+      name: "Abhishek",
       role: "Treasurer",
       department: "Artificial Intelligence and Data Science",
       expertise: ["Event Management", "Community Building", "Outreach"],
