@@ -55,15 +55,15 @@ const Navigation = () => {
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-lg border-b border-border shadow-lg"
-          : "bg-background/80 backdrop-blur-md border-b border-border/50"
+          ? "bg-background/95 backdrop-blur-lg border-b border-border shadow-glow"
+          : "bg-background/70 backdrop-blur-md border-b border-border/50"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-3 cursor-pointer"
@@ -89,7 +89,7 @@ const Navigation = () => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-1.5">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
@@ -131,7 +131,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
             <motion.button
               onClick={() => setIsOpen(!isOpen)}

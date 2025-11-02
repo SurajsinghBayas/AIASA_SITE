@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Users, Award, Code, Calendar, BookOpen, Megaphone, Paintbrush, UserCheck, Shield } from "lucide-react";
 import {
   Instagram,
   Youtube,
@@ -23,8 +24,16 @@ import { Sparkles, Share2 } from "lucide-react";
 
 const SocialMediaSection = () => {
   // Mouse parallax for hero background accents
-  const mouseParallaxRef = useMouseParallax(0.02);
-  const strongParallaxRef = useMouseParallax(0.05);
+    const mouseParallaxRef = useMouseParallax(0.02);
+    const strongParallaxRef = useMouseParallax(0.05);
+
+    // Floating icon particles for hero
+    const floatingIcons = [
+      { icon: Youtube, color: "bg-red-500/70", x: "left-10", y: "top-10", delay: 0 },
+      { icon: Instagram, color: "bg-pink-500/70", x: "right-16", y: "top-24", delay: 0.2 },
+      { icon: Linkedin, color: "bg-blue-500/70", x: "left-24", y: "bottom-16", delay: 0.4 },
+      { icon: Sparkles, color: "bg-purple-500/70", x: "right-10", y: "bottom-10", delay: 0.6 },
+    ];
 
   // Helper function to extract YouTube video ID from URL
   const extractVideoId = (url: string): string => {
@@ -165,163 +174,231 @@ const SocialMediaSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Hero */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-500/10 via-purple-500/10 to-pink-500/10 border border-border/50 mb-16">
+        <div className="relative overflow-hidden rounded-3xl mb-16 border border-border/50 shadow-xl">
+          {/* Layered gradients for glassy effect */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-purple-500/20 to-pink-500/20" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/60 to-background/80 backdrop-blur-2xl" />
+          </div>
           {/* Parallax decorative blobs */}
           <motion.div
             ref={mouseParallaxRef}
-            className="absolute -top-10 -left-10 w-64 h-64 rounded-full blur-3xl bg-red-500/20"
+            className="absolute -top-10 -left-10 w-64 h-64 rounded-full blur-3xl bg-red-500/30"
             animate={{ scale: [1, 1.1, 1], rotate: [0, 45, 0] }}
             transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
           />
           <motion.div
             ref={strongParallaxRef}
-            className="absolute -bottom-10 -right-10 w-72 h-72 rounded-full blur-3xl bg-purple-500/20"
+            className="absolute -bottom-10 -right-10 w-72 h-72 rounded-full blur-3xl bg-purple-500/30"
             animate={{ scale: [1.1, 1, 1.1], rotate: [360, 180, 0] }}
             transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
           />
-
-          <div className="relative z-10 px-6 md:px-12 py-12 md:py-20 text-center">
+          {/* Floating icon particles */}
+          {floatingIcons.map(({ icon: Icon, color, x, y, delay }, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/60 backdrop-blur-md mb-6"
+              key={i}
+              className={`absolute ${x} ${y} w-12 h-12 rounded-full flex items-center justify-center ${color} shadow-lg backdrop-blur-lg`}
+              initial={{ opacity: 0, scale: 0.7, y: 20 }}
+              animate={{ opacity: 0.7, scale: [1, 1.15, 1], y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, delay, ease: "easeInOut" }}
             >
-              <Sparkles className="w-4 h-4 text-purple-500" />
-              <span className="text-sm text-muted-foreground">
-                AIASA on Social
-              </span>
+              <Icon className="w-7 h-7 text-white/80" />
             </motion.div>
+          ))}
 
-            <motion.h1
-              className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              Stay{" "}
-              <span className="bg-gradient-to-r from-red-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Connected
-              </span>{" "}
-              with AIASA
-            </motion.h1>
-
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Watch Tensor Talk on YouTube, connect with us on LinkedIn, and
-              follow our latest updates on Instagram.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <Button
-                size="lg"
-                onClick={() => scrollToSection("youtube")}
-                className="group bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-700 hover:to-purple-700 text-white border-0 px-6 md:px-8 py-6 rounded-2xl shadow-lg"
-              >
-                Explore YouTube
-                <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection("instagram")}
-                className="group border-2 border-pink-500/50 hover:border-pink-500 bg-background/60 backdrop-blur-md hover:bg-pink-500/10 px-6 md:px-8 py-6 rounded-2xl"
-              >
-                Follow Instagram
-                <Share2 className="w-4 h-4 ml-2 group-hover:rotate-12 transition-transform" />
-              </Button>
-            </motion.div>
-
-            {/* Scroll indicator */}
-            <motion.div
-              className="mt-10 flex justify-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-6 h-10 border-2 border-border/60 rounded-full flex justify-center">
+          <div className="relative z-10 px-6 md:px-12 py-14 md:py-24 text-center">
+            <StaggeredAnimation staggerDelay={0.12} className="flex flex-col items-center">
+              <StaggeredItem>
                 <motion.div
-                  animate={{ y: [0, 16, 0] }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="w-1 h-3 bg-foreground rounded-full mt-2"
-                />
-              </div>
-            </motion.div>
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/60 backdrop-blur-md mb-6 shadow"
+                >
+                  <Sparkles className="w-4 h-4 text-purple-500 animate-spin-slow" />
+                  <span className="text-sm text-muted-foreground">AIASA on Social</span>
+                </motion.div>
+              </StaggeredItem>
+              <StaggeredItem>
+                <motion.h1
+                  className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-red-500 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  Stay Connected with AIASA
+                </motion.h1>
+              </StaggeredItem>
+              <StaggeredItem>
+                <motion.p
+                  className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  Watch Tensor Talk on YouTube, connect with us on LinkedIn, and follow our latest updates on Instagram.
+                </motion.p>
+              </StaggeredItem>
+              <StaggeredItem>
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4 justify-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  <Button
+                    size="lg"
+                    onClick={() => scrollToSection("youtube")}
+                    className="group bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-700 hover:to-purple-700 text-white border-0 px-6 md:px-8 py-6 rounded-2xl shadow-lg"
+                  >
+                    Explore YouTube
+                    <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    onClick={() => scrollToSection("instagram")}
+                    className="group border-2 border-pink-500/50 hover:border-pink-500 bg-background/60 backdrop-blur-md hover:bg-pink-500/10 px-6 md:px-8 py-6 rounded-2xl"
+                  >
+                    Follow Instagram
+                    <Share2 className="w-4 h-4 ml-2 group-hover:rotate-12 transition-transform" />
+                  </Button>
+                </motion.div>
+              </StaggeredItem>
+              <StaggeredItem>
+                {/* Scroll indicator */}
+                <motion.div
+                  className="mt-10 flex justify-center"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-6 h-10 border-2 border-border/60 rounded-full flex justify-center bg-background/80 shadow">
+                    <motion.div
+                      animate={{ y: [0, 16, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-1 h-3 bg-foreground rounded-full mt-2"
+                    />
+                  </div>
+                </motion.div>
+              </StaggeredItem>
+            </StaggeredAnimation>
           </div>
         </div>
 
-        {/* Social Media Links */}
-        <AnimatedSection className="mb-16">
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                size="lg"
-                onClick={() =>
-                  window.open(
-                    "https://www.youtube.com/@AIASA_Diaries",
-                    "_blank"
-                  )
-                }
-                className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3"
-              >
-                <Youtube className="w-6 h-6" />
-                AIASA Diaries
-                <ExternalLink className="w-4 h-4" />
-              </Button>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                size="lg"
-                onClick={() =>
-                  window.open(
-                    "https://www.linkedin.com/company/aiasa-diaries/", // Replace with actual LinkedIn URL
-                    "_blank"
-                  )
-                }
-                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3"
-              >
-                <Linkedin className="w-6 h-6" />
-                LinkedIn
-                <ExternalLink className="w-4 h-4" />
-              </Button>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                size="lg"
-                onClick={() =>
-                  window.open(
-                    "https://www.instagram.com/artificialalliance/",
-                    "_blank"
-                  )
-                }
-                className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-700 hover:via-purple-700 hover:to-indigo-700 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3"
-              >
-                <Instagram className="w-6 h-6" />
-                @artificialalliance
-                <ExternalLink className="w-4 h-4" />
-              </Button>
-            </motion.div>
-          </div>
+        {/* AIASA TEAM 2025-2026 - Premium UI/UX */}
+        <AnimatedSection className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-6xl rounded-3xl shadow-2xl border border-border/30 p-0 backdrop-blur-lg bg-gradient-to-br from-white/90 via-purple-100/80 to-pink-100/80 dark:from-background/90 dark:via-purple-950/80 dark:to-pink-950/80"
+          >
+            <div className="relative rounded-t-3xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-purple-500/30 to-pink-500/30 animate-gradient-x" />
+              <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center py-10 mb-0 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-purple-500 to-pink-500 drop-shadow-lg tracking-tight">AIASA TEAM 2025-2026</h2>
+            </div>
+            <p className="text-center text-muted-foreground mb-8 text-lg">Meet our passionate team, leads, and members for the year!</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 pb-10">
+              {/* Left Column: Leadership, Programming, Events */}
+              <div className="space-y-10">
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-purple-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><Award className="w-6 h-6 text-purple-500" /><h3 className="font-bold text-xl text-purple-700">Leadership</h3></div>
+                  <ul className="space-y-2 text-base">
+                    <li><span className="font-semibold">Head of Department:</span> Dr. M.B. Patil</li>
+                    <li><span className="font-semibold">Faculty Co-ordinator:</span> Prof. V. A. Sangolgi</li>
+                    <li><span className="font-semibold">President:</span> Tarang Shah</li>
+                    <li><span className="font-semibold">Vice President:</span> <span className="italic text-muted-foreground">(Vacant)</span></li>
+                    <li><span className="font-semibold">Secretary:</span> Khushaboo Rafik Shaikh</li>
+                    <li><span className="font-semibold">Treasurer:</span> Abhishek Rajesh Waghmare</li>
+                    <li><span className="font-semibold">Event Coordinator Lead:</span> Vaishnavi Suresh Devakate</li>
+                    <li><span className="font-semibold">Technical Lead:</span> Sawyam Shalgar & Suraj Singh Bayas</li>
+                  </ul>
+                </div>
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-purple-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><Code className="w-6 h-6 text-pink-700" /><h3 className="font-bold text-xl text-pink-700">Programming Club & Technical Members</h3></div>
+                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                    {[
+                      "Aryan Vivekanand Kota","Pratiksha Pramod Gaikwad","Shreya Chandrashekha r Yalshetti","Khushaboo Rafik Shaikh","Chetan Basawaraj Shabadi","Shrujana Pentappa Vangari","Akanksha Rajendra Gajdhane","Pratik Virkumar Amane","Aakash Shrishail Madgale","Shreya Chandrashekha r Yalshetti","Atharva Chidanand Manthalkar","Archana Govind Purud","Sanjay Shashikant lade","Krishna Amrit Birajdar"
+                    ].map(name => (
+                      <StaggeredItem key={name}><Badge className="bg-purple-200 text-purple-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-purple-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                    ))}
+                  </StaggeredAnimation>
+                </div>
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-red-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><Calendar className="w-6 h-6 text-red-700" /><h3 className="font-bold text-xl text-red-700">Event Coordinators</h3></div>
+                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                    {[
+                      "Shivkumar Rachayya Swami","Saikiran Narendra Shriram","Prajwal Gurubasappa Shedabal","Akshata Shriniwas Mamdyal","Kushal Mahesh Devsani","Sanika subhash fulari","Samruddhi Jumnalkar","Dhanashree Girish Dhanshetti","Shravani Pramod Doke","Krishna Amrit Birajdar","Sneha Sanjaykumar Chabukswar","Shrujana Pentappa Vangari","Aakash Shrishail Madgale","Prithvi Shrishail Puranik","Trisha Balaji Mada","Vedha Vaibhav Homkar","Sagar Mahadev hattargi","Shravni Umbarje"
+                    ].map(name => (
+                      <StaggeredItem key={name}><Badge className="bg-red-200 text-red-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-red-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                    ))}
+                  </StaggeredAnimation>
+                </div>
+              </div>
+              {/* Right Column: Academic, PR, Creative, Girls Rep, Discipline */}
+              <div className="space-y-10">
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-indigo-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><BookOpen className="w-6 h-6 text-indigo-700" /><h3 className="font-bold text-xl text-indigo-700">Academic Affairs Officers</h3></div>
+                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                    {[
+                      "Aditi Anil Joshi","Divya Dattatray Devkar","Angelica Dolare","Shrujana Pentappa Vangari"
+                    ].map(name => (
+                      <StaggeredItem key={name}><Badge className="bg-indigo-200 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-indigo-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                    ))}
+                  </StaggeredAnimation>
+                </div>
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-green-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><Megaphone className="w-6 h-6 text-green-700" /><h3 className="font-bold text-xl text-green-700">Public Relations Officers</h3></div>
+                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                    {[
+                      "Saket Manish Deshpande","Srushti Sanjay Wadi","Suhani Mane","Simrah Sameer Golandaj","kaushal kedarnath dolle"
+                    ].map(name => (
+                      <StaggeredItem key={name}><Badge className="bg-green-200 text-green-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-green-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                    ))}
+                  </StaggeredAnimation>
+                </div>
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-yellow-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><Paintbrush className="w-6 h-6 text-yellow-700" /><h3 className="font-bold text-xl text-yellow-700">Creative Directors</h3></div>
+                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                    {[
+                      "Sanchita Santosh Kore","Roshni Irfan Maniyar","Akshata Shriniwas Mamdyal","Aman Sevakram Rahangdale","Viha Hibare"
+                    ].map(name => (
+                      <StaggeredItem key={name}><Badge className="bg-yellow-200 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                    ))}
+                  </StaggeredAnimation>
+                </div>
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-pink-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><UserCheck className="w-6 h-6 text-pink-600" /><h3 className="font-bold text-xl text-pink-600">Girls Representative</h3></div>
+                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                    {[
+                      "Sanika Fulari","Prajakta Devraj Patil","Trisha Balaji Mada"
+                    ].map(name => (
+                      <StaggeredItem key={name}><Badge className="bg-pink-200 text-pink-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-pink-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                    ))}
+                  </StaggeredAnimation>
+                </div>
+                <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-3"><Shield className="w-6 h-6 text-gray-700" /><h3 className="font-bold text-xl text-gray-700">Discipline Committee</h3></div>
+                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                    {[
+                      "Vardan Yemul","Ganesh Bansode"
+                    ].map(name => (
+                      <StaggeredItem key={name}><Badge className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                    ))}
+                  </StaggeredAnimation>
+                </div>
+              </div>
+            </div>
+            {/* Divider */}
+            <div className="w-full h-2 bg-gradient-to-r from-red-500/20 via-purple-500/20 to-pink-500/20 rounded-b-3xl" />
+          </motion.div>
         </AnimatedSection>
 
         <div className="grid lg:grid-cols-2 gap-12">

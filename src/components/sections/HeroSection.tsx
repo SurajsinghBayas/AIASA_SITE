@@ -192,9 +192,10 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button 
-                size="lg" 
+                size="xl" 
+                variant="gradient"
                 onClick={() => scrollToSection("about")}
-                className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="group relative overflow-hidden from-blue-600 to-purple-600"
               >
                 <span className="relative z-10 flex items-center">
                   Discover Our Story
@@ -214,10 +215,10 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button 
-                variant="outline" 
-                size="lg"
+                variant="glass" 
+                size="xl"
                 onClick={() => scrollToSection("events")}
-                className="group border-2 border-primary/50 hover:border-primary bg-background/50 backdrop-blur-sm hover:bg-primary/10 px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300"
+                className="group border-2 border-primary/50 hover:border-primary px-8 py-6 text-lg font-semibold rounded-2xl"
               >
                 <span className="flex items-center">
                   Explore Events
