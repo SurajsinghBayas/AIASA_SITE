@@ -1,7 +1,17 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Users, Award, Code, Calendar, BookOpen, Megaphone, Paintbrush, UserCheck, Shield } from "lucide-react";
+import {
+  Users,
+  Award,
+  Code,
+  Calendar,
+  BookOpen,
+  Megaphone,
+  Paintbrush,
+  UserCheck,
+  Shield,
+} from "lucide-react";
 import {
   Instagram,
   Youtube,
@@ -24,16 +34,40 @@ import { Sparkles, Share2 } from "lucide-react";
 
 const SocialMediaSection = () => {
   // Mouse parallax for hero background accents
-    const mouseParallaxRef = useMouseParallax(0.02);
-    const strongParallaxRef = useMouseParallax(0.05);
+  const mouseParallaxRef = useMouseParallax(0.02);
+  const strongParallaxRef = useMouseParallax(0.05);
 
-    // Floating icon particles for hero
-    const floatingIcons = [
-      { icon: Youtube, color: "bg-red-500/70", x: "left-10", y: "top-10", delay: 0 },
-      { icon: Instagram, color: "bg-pink-500/70", x: "right-16", y: "top-24", delay: 0.2 },
-      { icon: Linkedin, color: "bg-blue-500/70", x: "left-24", y: "bottom-16", delay: 0.4 },
-      { icon: Sparkles, color: "bg-purple-500/70", x: "right-10", y: "bottom-10", delay: 0.6 },
-    ];
+  // Floating icon particles for hero
+  const floatingIcons = [
+    {
+      icon: Youtube,
+      color: "bg-red-500/70",
+      x: "left-10",
+      y: "top-10",
+      delay: 0,
+    },
+    {
+      icon: Instagram,
+      color: "bg-pink-500/70",
+      x: "right-16",
+      y: "top-24",
+      delay: 0.2,
+    },
+    {
+      icon: Linkedin,
+      color: "bg-blue-500/70",
+      x: "left-24",
+      y: "bottom-16",
+      delay: 0.4,
+    },
+    {
+      icon: Sparkles,
+      color: "bg-purple-500/70",
+      x: "right-10",
+      y: "bottom-10",
+      delay: 0.6,
+    },
+  ];
 
   // Helper function to extract YouTube video ID from URL
   const extractVideoId = (url: string): string => {
@@ -200,14 +234,22 @@ const SocialMediaSection = () => {
               className={`absolute ${x} ${y} w-12 h-12 rounded-full flex items-center justify-center ${color} shadow-lg backdrop-blur-lg`}
               initial={{ opacity: 0, scale: 0.7, y: 20 }}
               animate={{ opacity: 0.7, scale: [1, 1.15, 1], y: [0, -10, 0] }}
-              transition={{ duration: 6, repeat: Infinity, delay, ease: "easeInOut" }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                delay,
+                ease: "easeInOut",
+              }}
             >
               <Icon className="w-7 h-7 text-white/80" />
             </motion.div>
           ))}
 
           <div className="relative z-10 px-6 md:px-12 py-14 md:py-24 text-center">
-            <StaggeredAnimation staggerDelay={0.12} className="flex flex-col items-center">
+            <StaggeredAnimation
+              staggerDelay={0.12}
+              className="flex flex-col items-center"
+            >
               <StaggeredItem>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -217,7 +259,9 @@ const SocialMediaSection = () => {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/60 backdrop-blur-md mb-6 shadow"
                 >
                   <Sparkles className="w-4 h-4 text-purple-500 animate-spin-slow" />
-                  <span className="text-sm text-muted-foreground">AIASA on Social</span>
+                  <span className="text-sm text-muted-foreground">
+                    AIASA on Social
+                  </span>
                 </motion.div>
               </StaggeredItem>
               <StaggeredItem>
@@ -239,7 +283,8 @@ const SocialMediaSection = () => {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  Watch Tensor Talk on YouTube, connect with us on LinkedIn, and follow our latest updates on Instagram.
+                  Watch Tensor Talk on YouTube, connect with us on LinkedIn, and
+                  follow our latest updates on Instagram.
                 </motion.p>
               </StaggeredItem>
               <StaggeredItem>
@@ -281,7 +326,11 @@ const SocialMediaSection = () => {
                   <div className="w-6 h-10 border-2 border-border/60 rounded-full flex justify-center bg-background/80 shadow">
                     <motion.div
                       animate={{ y: [0, 16, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                       className="w-1 h-3 bg-foreground rounded-full mt-2"
                     />
                   </div>
@@ -302,42 +351,135 @@ const SocialMediaSection = () => {
           >
             <div className="relative rounded-t-3xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-purple-500/30 to-pink-500/30 animate-gradient-x" />
-              <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center py-10 mb-0 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-purple-500 to-pink-500 drop-shadow-lg tracking-tight">AIASA TEAM 2025-2026</h2>
+              <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center py-10 mb-0 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-purple-500 to-pink-500 drop-shadow-lg tracking-tight">
+                AIASA TEAM 2025-2026
+              </h2>
             </div>
-            <p className="text-center text-muted-foreground mb-8 text-lg">Meet our passionate team, leads, and members for the year!</p>
+            <p className="text-center text-muted-foreground mb-8 text-lg">
+              Meet our passionate team, leads, and members for the year!
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 pb-10">
               {/* Left Column: Leadership, Programming, Events */}
               <div className="space-y-10">
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-purple-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><Award className="w-6 h-6 text-purple-500" /><h3 className="font-bold text-xl text-purple-700">Leadership</h3></div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Award className="w-6 h-6 text-purple-500" />
+                    <h3 className="font-bold text-xl text-purple-700">
+                      Leadership
+                    </h3>
+                  </div>
                   <ul className="space-y-2 text-base">
-                    <li><span className="font-semibold">Head of Department:</span> Dr. M.B. Patil</li>
-                    <li><span className="font-semibold">Faculty Co-ordinator:</span> Prof. V. A. Sangolgi</li>
-                    <li><span className="font-semibold">President:</span> Tarang Shah</li>
-                    <li><span className="font-semibold">Vice President:</span> <span className="italic text-muted-foreground">(Vacant)</span></li>
-                    <li><span className="font-semibold">Secretary:</span> Khushaboo Rafik Shaikh</li>
-                    <li><span className="font-semibold">Treasurer:</span> Abhishek Rajesh Waghmare</li>
-                    <li><span className="font-semibold">Event Coordinator Lead:</span> Vaishnavi Suresh Devakate</li>
-                    <li><span className="font-semibold">Technical Lead:</span> Sawyam Shalgar & Suraj Singh Bayas</li>
+                    <li>
+                      <span className="font-semibold">Head of Department:</span>{" "}
+                      Dr. M.B. Patil
+                    </li>
+                    <li>
+                      <span className="font-semibold">
+                        Faculty Co-ordinator:
+                      </span>{" "}
+                      Prof. V. A. Sangolgi
+                    </li>
+                    <li>
+                      <span className="font-semibold">President:</span> Tarang
+                      Shah
+                    </li>
+                    <li>
+                      <span className="font-semibold">Vice President:</span>{" "}
+                      <span className="italic text-muted-foreground">
+                        (Vacant)
+                      </span>
+                    </li>
+                    <li>
+                      <span className="font-semibold">Secretary:</span>{" "}
+                      Khushaboo Rafik Shaikh
+                    </li>
+                    <li>
+                      <span className="font-semibold">Treasurer:</span> Abhishek
+                      Rajesh Waghmare
+                    </li>
+                    <li>
+                      <span className="font-semibold">
+                        Event Coordinator Lead:
+                      </span>{" "}
+                      Vaishnavi Suresh Devakate
+                    </li>
+                    <li>
+                      <span className="font-semibold">Technical Lead:</span>{" "}
+                      Sawyam Shalgar & Suraj Singh Bayas
+                    </li>
                   </ul>
                 </div>
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-purple-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><Code className="w-6 h-6 text-pink-700" /><h3 className="font-bold text-xl text-pink-700">Programming Club & Technical Members</h3></div>
-                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Code className="w-6 h-6 text-pink-700" />
+                    <h3 className="font-bold text-xl text-pink-700">
+                      Programming Club & Technical Members
+                    </h3>
+                  </div>
+                  <StaggeredAnimation
+                    staggerDelay={0.04}
+                    className="flex flex-wrap gap-2"
+                  >
                     {[
-                      "Aryan Vivekanand Kota","Pratiksha Pramod Gaikwad","Shreya Chandrashekha r Yalshetti","Khushaboo Rafik Shaikh","Chetan Basawaraj Shabadi","Shrujana Pentappa Vangari","Akanksha Rajendra Gajdhane","Pratik Virkumar Amane","Aakash Shrishail Madgale","Shreya Chandrashekha r Yalshetti","Atharva Chidanand Manthalkar","Archana Govind Purud","Sanjay Shashikant lade","Krishna Amrit Birajdar"
-                    ].map(name => (
-                      <StaggeredItem key={name}><Badge className="bg-purple-200 text-purple-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-purple-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                      "Aryan Vivekanand Kota",
+                      "Pratiksha Pramod Gaikwad",
+                      "Shreya Chandrashekha r Yalshetti",
+                      "Khushaboo Rafik Shaikh",
+                      "Chetan Basawaraj Shabadi",
+                      "Shrujana Pentappa Vangari",
+                      "Akanksha Rajendra Gajdhane",
+                      "Pratik Virkumar Amane",
+                      "Aakash Shrishail Madgale",
+                      "Shreya Chandrashekha r Yalshetti",
+                      "Atharva Chidanand Manthalkar",
+                      "Archana Govind Purud",
+                      "Sanjay Shashikant lade",
+                      "Krishna Amrit Birajdar",
+                    ].map((name) => (
+                      <StaggeredItem key={name}>
+                        <Badge className="bg-purple-200 text-purple-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-purple-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">
+                          {name}
+                        </Badge>
+                      </StaggeredItem>
                     ))}
                   </StaggeredAnimation>
                 </div>
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-red-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><Calendar className="w-6 h-6 text-red-700" /><h3 className="font-bold text-xl text-red-700">Event Coordinators</h3></div>
-                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Calendar className="w-6 h-6 text-red-700" />
+                    <h3 className="font-bold text-xl text-red-700">
+                      Event Coordinators
+                    </h3>
+                  </div>
+                  <StaggeredAnimation
+                    staggerDelay={0.04}
+                    className="flex flex-wrap gap-2"
+                  >
                     {[
-                      "Shivkumar Rachayya Swami","Saikiran Narendra Shriram","Prajwal Gurubasappa Shedabal","Akshata Shriniwas Mamdyal","Kushal Mahesh Devsani","Sanika subhash fulari","Samruddhi Jumnalkar","Dhanashree Girish Dhanshetti","Shravani Pramod Doke","Krishna Amrit Birajdar","Sneha Sanjaykumar Chabukswar","Shrujana Pentappa Vangari","Aakash Shrishail Madgale","Prithvi Shrishail Puranik","Trisha Balaji Mada","Vedha Vaibhav Homkar","Sagar Mahadev hattargi","Shravni Umbarje"
-                    ].map(name => (
-                      <StaggeredItem key={name}><Badge className="bg-red-200 text-red-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-red-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                      "Shivkumar Rachayya Swami",
+                      "Saikiran Narendra Shriram",
+                      "Prajwal Gurubasappa Shedabal",
+                      "Akshata Shriniwas Mamdyal",
+                      "Kushal Mahesh Devsani",
+                      "Sanika subhash fulari",
+                      "Samruddhi Jumnalkar",
+                      "Dhanashree Girish Dhanshetti",
+                      "Shravani Pramod Doke",
+                      "Krishna Amrit Birajdar",
+                      "Sneha Sanjaykumar Chabukswar",
+                      "Shrujana Pentappa Vangari",
+                      "Aakash Shrishail Madgale",
+                      "Prithvi Shrishail Puranik",
+                      "Trisha Balaji Mada",
+                      "Vedha Vaibhav Homkar",
+                      "Sagar Mahadev hattargi",
+                      "Shravni Umbarje",
+                    ].map((name) => (
+                      <StaggeredItem key={name}>
+                        <Badge className="bg-red-200 text-red-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-red-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">
+                          {name}
+                        </Badge>
+                      </StaggeredItem>
                     ))}
                   </StaggeredAnimation>
                 </div>
@@ -345,52 +487,123 @@ const SocialMediaSection = () => {
               {/* Right Column: Academic, PR, Creative, Girls Rep, Discipline */}
               <div className="space-y-10">
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-indigo-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><BookOpen className="w-6 h-6 text-indigo-700" /><h3 className="font-bold text-xl text-indigo-700">Academic Affairs Officers</h3></div>
-                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <BookOpen className="w-6 h-6 text-indigo-700" />
+                    <h3 className="font-bold text-xl text-indigo-700">
+                      Academic Affairs Officers
+                    </h3>
+                  </div>
+                  <StaggeredAnimation
+                    staggerDelay={0.04}
+                    className="flex flex-wrap gap-2"
+                  >
                     {[
-                      "Aditi Anil Joshi","Divya Dattatray Devkar","Angelica Dolare","Shrujana Pentappa Vangari"
-                    ].map(name => (
-                      <StaggeredItem key={name}><Badge className="bg-indigo-200 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-indigo-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                      "Aditi Anil Joshi",
+                      "Divya Dattatray Devkar",
+                      "Angelica Dolare",
+                      "Shrujana Pentappa Vangari",
+                    ].map((name) => (
+                      <StaggeredItem key={name}>
+                        <Badge className="bg-indigo-200 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-indigo-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">
+                          {name}
+                        </Badge>
+                      </StaggeredItem>
                     ))}
                   </StaggeredAnimation>
                 </div>
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-green-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><Megaphone className="w-6 h-6 text-green-700" /><h3 className="font-bold text-xl text-green-700">Public Relations Officers</h3></div>
-                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Megaphone className="w-6 h-6 text-green-700" />
+                    <h3 className="font-bold text-xl text-green-700">
+                      Public Relations Officers
+                    </h3>
+                  </div>
+                  <StaggeredAnimation
+                    staggerDelay={0.04}
+                    className="flex flex-wrap gap-2"
+                  >
                     {[
-                      "Saket Manish Deshpande","Srushti Sanjay Wadi","Suhani Mane","Simrah Sameer Golandaj","kaushal kedarnath dolle"
-                    ].map(name => (
-                      <StaggeredItem key={name}><Badge className="bg-green-200 text-green-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-green-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                      "Saket Manish Deshpande",
+                      "Srushti Sanjay Wadi",
+                      "Suhani Mane",
+                      "Simrah Sameer Golandaj",
+                      "kaushal kedarnath dolle",
+                    ].map((name) => (
+                      <StaggeredItem key={name}>
+                        <Badge className="bg-green-200 text-green-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-green-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">
+                          {name}
+                        </Badge>
+                      </StaggeredItem>
                     ))}
                   </StaggeredAnimation>
                 </div>
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-yellow-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><Paintbrush className="w-6 h-6 text-yellow-700" /><h3 className="font-bold text-xl text-yellow-700">Creative Directors</h3></div>
-                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Paintbrush className="w-6 h-6 text-yellow-700" />
+                    <h3 className="font-bold text-xl text-yellow-700">
+                      Creative Directors
+                    </h3>
+                  </div>
+                  <StaggeredAnimation
+                    staggerDelay={0.04}
+                    className="flex flex-wrap gap-2"
+                  >
                     {[
-                      "Sanchita Santosh Kore","Roshni Irfan Maniyar","Akshata Shriniwas Mamdyal","Aman Sevakram Rahangdale","Viha Hibare"
-                    ].map(name => (
-                      <StaggeredItem key={name}><Badge className="bg-yellow-200 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                      "Sanchita Santosh Kore",
+                      "Roshni Irfan Maniyar",
+                      "Akshata Shriniwas Mamdyal",
+                      "Aman Sevakram Rahangdale",
+                      "Viha Hibare",
+                    ].map((name) => (
+                      <StaggeredItem key={name}>
+                        <Badge className="bg-yellow-200 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">
+                          {name}
+                        </Badge>
+                      </StaggeredItem>
                     ))}
                   </StaggeredAnimation>
                 </div>
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-pink-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><UserCheck className="w-6 h-6 text-pink-600" /><h3 className="font-bold text-xl text-pink-600">Girls Representative</h3></div>
-                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <UserCheck className="w-6 h-6 text-pink-600" />
+                    <h3 className="font-bold text-xl text-pink-600">
+                      Girls Representative
+                    </h3>
+                  </div>
+                  <StaggeredAnimation
+                    staggerDelay={0.04}
+                    className="flex flex-wrap gap-2"
+                  >
                     {[
-                      "Sanika Fulari","Prajakta Devraj Patil","Trisha Balaji Mada"
-                    ].map(name => (
-                      <StaggeredItem key={name}><Badge className="bg-pink-200 text-pink-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-pink-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                      "Sanika Fulari",
+                      "Prajakta Devraj Patil",
+                      "Trisha Balaji Mada",
+                    ].map((name) => (
+                      <StaggeredItem key={name}>
+                        <Badge className="bg-pink-200 text-pink-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-pink-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">
+                          {name}
+                        </Badge>
+                      </StaggeredItem>
                     ))}
                   </StaggeredAnimation>
                 </div>
                 <div className="group rounded-2xl bg-white/80 dark:bg-background/80 p-6 shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 relative">
-                  <div className="flex items-center gap-2 mb-3"><Shield className="w-6 h-6 text-gray-700" /><h3 className="font-bold text-xl text-gray-700">Discipline Committee</h3></div>
-                  <StaggeredAnimation staggerDelay={0.04} className="flex flex-wrap gap-2">
-                    {[
-                      "Vardan Yemul","Ganesh Bansode"
-                    ].map(name => (
-                      <StaggeredItem key={name}><Badge className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">{name}</Badge></StaggeredItem>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Shield className="w-6 h-6 text-gray-700" />
+                    <h3 className="font-bold text-xl text-gray-700">
+                      Discipline Committee
+                    </h3>
+                  </div>
+                  <StaggeredAnimation
+                    staggerDelay={0.04}
+                    className="flex flex-wrap gap-2"
+                  >
+                    {["Vardan Yemul", "Ganesh Bansode"].map((name) => (
+                      <StaggeredItem key={name}>
+                        <Badge className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors cursor-pointer shadow-lg hover:scale-105 duration-200">
+                          {name}
+                        </Badge>
+                      </StaggeredItem>
                     ))}
                   </StaggeredAnimation>
                 </div>

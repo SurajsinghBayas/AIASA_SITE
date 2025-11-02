@@ -22,7 +22,10 @@ const Navigation = () => {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -76,7 +79,11 @@ const Navigation = () => {
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
             >
-              <img src="/imgs.png" alt="AIASA Logo" className="w-10 h-10 rounded-xl shadow-md" />
+              <img
+                src="/imgs.png"
+                alt="AIASA Logo"
+                className="w-10 h-10 rounded-xl shadow-md"
+              />
               <motion.div
                 className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/20 to-secondary/20"
                 animate={{ opacity: [0, 0.5, 0] }}
