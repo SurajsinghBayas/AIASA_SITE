@@ -230,8 +230,9 @@ const SocialMediaSection = () => {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  Watch Tensor Talk on YouTube, connect with us on LinkedIn, and follow our journey on Instagram
-                  for the latest updates, expert discussions, and inspiring stories.
+                  Watch Tensor Talk on YouTube, connect with us on LinkedIn, and
+                  follow our journey on Instagram for the latest updates, expert
+                  discussions, and inspiring stories.
                 </motion.p>
               </StaggeredItem>
               <StaggeredItem>
