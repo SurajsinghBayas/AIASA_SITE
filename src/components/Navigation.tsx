@@ -51,7 +51,7 @@ const Navigation = () => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("keydown", handleKeyDown);
-    
+
     // Prevent scroll when mobile menu is open
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -77,7 +77,7 @@ const Navigation = () => {
         top: offsetPosition,
         behavior: "smooth",
       });
-      
+
       setIsOpen(false);
       setActiveSection(sectionId);
     }
@@ -266,10 +266,14 @@ const Navigation = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       whileTap={{ scale: 0.98 }}
                       aria-label={`Navigate to ${item.label}`}
-                      aria-current={activeSection === item.id ? "page" : undefined}
+                      aria-current={
+                        activeSection === item.id ? "page" : undefined
+                      }
                     >
                       <item.icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                      <span className="font-medium text-sm sm:text-base">{item.label}</span>
+                      <span className="font-medium text-sm sm:text-base">
+                        {item.label}
+                      </span>
                       {activeSection === item.id && (
                         <motion.div
                           className="ml-auto w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full flex-shrink-0"

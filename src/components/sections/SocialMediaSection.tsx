@@ -12,13 +12,7 @@ import {
   UserCheck,
   Shield,
 } from "lucide-react";
-import {
-  Instagram,
-  Youtube,
-  Linkedin,
-  Play,
-  ExternalLink,
-} from "lucide-react";
+import { Instagram, Youtube, Linkedin, Play, ExternalLink } from "lucide-react";
 import {
   AnimatedSection,
   StaggeredAnimation,
@@ -237,7 +231,8 @@ const SocialMediaSection = () => {
                   viewport={{ once: true }}
                 >
                   Watch Tensor Talk on YouTube and connect with us on LinkedIn
-                  for the latest updates, expert discussions, and inspiring stories.
+                  for the latest updates, expert discussions, and inspiring
+                  stories.
                 </motion.p>
               </StaggeredItem>
               <StaggeredItem>
@@ -672,14 +667,12 @@ const SocialMediaSection = () => {
               Join Our YouTube Community
             </h3>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Subscribe to our YouTube channel for the latest Tensor Talk episodes, 
-              in-depth discussions with experts, and inspiring stories from the AI community.
+              Subscribe to our YouTube channel for the latest Tensor Talk
+              episodes, in-depth discussions with experts, and inspiring stories
+              from the AI community.
             </p>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
                 onClick={() =>
