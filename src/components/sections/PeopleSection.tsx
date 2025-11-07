@@ -10,6 +10,12 @@ import {
   Users,
   Crown,
   Star,
+  GraduationCap,
+  UserCheck,
+  Shield,
+  Briefcase,
+  Coins,
+  BookOpen,
 } from "lucide-react";
 import {
   AnimatedSection,
@@ -22,29 +28,29 @@ import { motion } from "framer-motion";
 const PeopleSection = () => {
   const leadership = [
     {
-      name: "Patil Sir",
+      name: "Dr. M.B. Patil",
       role: "HOD",
       department: "Artificial Intelligence and Data Science",
       expertise: ["Machine Learning", "Neural Networks", "AI Ethics"],
       bio: "Head of Artificial Intelligence and Data Science Department with 15+ years of experience in advancing AI education and research.",
-      avatar: "/placeholder.svg",
+      avatar: "",
       email: "patil@university.edu",
       linkedin: "#",
       github: "#",
-      icon: Crown,
+      icon: GraduationCap,
       gradient: "from-yellow-500 to-orange-500",
     },
     {
-      name: "Vijay Sir",
+      name: "Prof. Vijay Sir",
       role: "AIASA Faculty Coordinator",
       department: "Artificial Intelligence and Data Science",
       expertise: ["Big Data", "Statistics", "Data Mining"],
       bio: "Faculty coordinator for AIASA, specializing in Data analytics and student mentorship.",
-      avatar: "/placeholder.svg",
+      avatar: "",
       email: "vijay@university.edu",
       linkedin: "#",
       github: "#",
-      icon: Award,
+      icon: BookOpen,
       gradient: "from-blue-500 to-purple-500",
     },
   ];
@@ -56,7 +62,7 @@ const PeopleSection = () => {
       department: "Artificial Intelligence and Data Science (TY)",
       expertise: ["Computer Vision", "Deep Learning", "Robotics"],
       bio: "Leading AIASA with vision and innovation, pioneering work in computer vision and autonomous systems.",
-      avatar: "/placeholder.svg",
+      avatar: "",
       email: "tarang@student.university.edu",
       linkedin: "#",
       github: "#",
@@ -69,11 +75,11 @@ const PeopleSection = () => {
       department: "Artificial Intelligence and Data Science (SY)",
       expertise: ["NLP", "Transformers", "Language Models"],
       bio: "Supporting the president in strategic initiatives, focusing on natural language processing and AI applications.",
-      avatar: "/placeholder.svg",
+      avatar: "",
       email: "vp@student.university.edu",
       linkedin: "#",
       github: "#",
-      icon: Star,
+      icon: Shield,
       gradient: "from-green-500 to-teal-500",
     },
     {
@@ -82,24 +88,24 @@ const PeopleSection = () => {
       department: "Artificial Intelligence and Data Science",
       expertise: ["AI Strategy", "Tech Transfer", "Industry Relations"],
       bio: "Managing communications and bridging academia with industry for practical AI implementations.",
-      avatar: "/placeholder.svg",
+      avatar: "",
       email: "secretary@student.university.edu",
       linkedin: "#",
       github: "#",
-      icon: Users,
+      icon: UserCheck,
       gradient: "from-cyan-500 to-blue-500",
     },
     {
-      name: "Abhishek",
+      name: "Abhishek Wagmhmare",
       role: "Treasurer",
       department: "Artificial Intelligence and Data Science",
       expertise: ["Event Management", "Community Building", "Outreach"],
       bio: "Managing finances and organizing impactful events to build our vibrant research community.",
-      avatar: "/placeholder.svg",
+      avatar: "",
       email: "treasurer@student.university.edu",
       linkedin: "#",
       github: "#",
-      icon: Award,
+      icon: Coins,
       gradient: "from-red-500 to-pink-500",
     },
   ];
@@ -303,7 +309,7 @@ const PeopleSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Crown className="inline-block w-8 h-8 mr-3 text-yellow-500" />
+            <GraduationCap className="inline-block w-8 h-8 mr-3 text-yellow-500" />
             Faculty Leadership
           </motion.h3>
           <StaggeredAnimation

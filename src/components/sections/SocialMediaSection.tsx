@@ -230,9 +230,8 @@ const SocialMediaSection = () => {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  Watch Tensor Talk on YouTube and connect with us on LinkedIn
-                  for the latest updates, expert discussions, and inspiring
-                  stories.
+                  Watch Tensor Talk on YouTube, connect with us on LinkedIn, and follow our journey on Instagram
+                  for the latest updates, expert discussions, and inspiring stories.
                 </motion.p>
               </StaggeredItem>
               <StaggeredItem>
@@ -248,7 +247,36 @@ const SocialMediaSection = () => {
                     onClick={() => scrollToSection("youtube")}
                     className="group bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-700 hover:to-purple-700 text-white border-0 px-6 md:px-8 py-6 rounded-2xl shadow-lg"
                   >
-                    Explore YouTube
+                    <Youtube className="w-5 h-5 mr-2" />
+                    YouTube
+                    <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    onClick={() =>
+                      window.open(
+                        "https://www.linkedin.com/company/artificial-intelligence-alliance-student-association/posts/?feedView=all",
+                        "_blank"
+                      )
+                    }
+                    className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white border-0 px-6 md:px-8 py-6 rounded-2xl shadow-lg"
+                  >
+                    <Linkedin className="w-5 h-5 mr-2" />
+                    LinkedIn
+                    <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    onClick={() =>
+                      window.open(
+                        "https://www.instagram.com/artificialalliance/",
+                        "_blank"
+                      )
+                    }
+                    className="group bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-700 hover:via-purple-700 hover:to-indigo-700 text-white border-0 px-6 md:px-8 py-6 rounded-2xl shadow-lg"
+                  >
+                    <Instagram className="w-5 h-5 mr-2" />
+                    Instagram
                     <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>
