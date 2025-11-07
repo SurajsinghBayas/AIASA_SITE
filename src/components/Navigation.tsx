@@ -69,7 +69,7 @@ const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
     // Close mobile menu first
     setIsOpen(false);
-    
+
     // Small delay to allow menu to close
     setTimeout(() => {
       const element = document.getElementById(sectionId);
@@ -82,7 +82,7 @@ const Navigation = () => {
           top: offsetPosition,
           behavior: "smooth",
         });
-        
+
         setActiveSection(sectionId);
       }
     }, 100);
