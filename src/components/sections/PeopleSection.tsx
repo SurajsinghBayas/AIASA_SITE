@@ -2,8 +2,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Github, Award, Users, Crown, Star } from "lucide-react";
-import { AnimatedSection, StaggeredAnimation, StaggeredItem, ScaleOnHover } from "@/components/ui/animated-components";
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Award,
+  Users,
+  Crown,
+  Star,
+} from "lucide-react";
+import {
+  AnimatedSection,
+  StaggeredAnimation,
+  StaggeredItem,
+  ScaleOnHover,
+} from "@/components/ui/animated-components";
 import { motion } from "framer-motion";
 
 const PeopleSection = () => {
@@ -19,7 +32,7 @@ const PeopleSection = () => {
       linkedin: "#",
       github: "#",
       icon: Crown,
-      gradient: "from-yellow-500 to-orange-500"
+      gradient: "from-yellow-500 to-orange-500",
     },
     {
       name: "Vijay Sir",
@@ -28,12 +41,12 @@ const PeopleSection = () => {
       expertise: ["Big Data", "Statistics", "Data Mining"],
       bio: "Faculty coordinator for AIASA, specializing in Data analytics and student mentorship.",
       avatar: "/placeholder.svg",
-      email: "vijay@university.edu",  
+      email: "vijay@university.edu",
       linkedin: "#",
       github: "#",
       icon: Award,
-      gradient: "from-blue-500 to-purple-500"
-    }
+      gradient: "from-blue-500 to-purple-500",
+    },
   ];
 
   const executiveTeam = [
@@ -48,10 +61,10 @@ const PeopleSection = () => {
       linkedin: "#",
       github: "#",
       icon: Crown,
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-purple-500 to-pink-500",
     },
     {
-      name: "Vice President",
+      name: "Samruddhi Gawali",
       role: "Vice President",
       department: "Artificial Intelligence and Data Science (SY)",
       expertise: ["NLP", "Transformers", "Language Models"],
@@ -61,7 +74,7 @@ const PeopleSection = () => {
       linkedin: "#",
       github: "#",
       icon: Star,
-      gradient: "from-green-500 to-teal-500"
+      gradient: "from-green-500 to-teal-500",
     },
     {
       name: "Khushaboo Shaikh",
@@ -74,7 +87,7 @@ const PeopleSection = () => {
       linkedin: "#",
       github: "#",
       icon: Users,
-      gradient: "from-cyan-500 to-blue-500"
+      gradient: "from-cyan-500 to-blue-500",
     },
     {
       name: "Abhishek",
@@ -87,35 +100,38 @@ const PeopleSection = () => {
       linkedin: "#",
       github: "#",
       icon: Award,
-      gradient: "from-red-500 to-pink-500"
-    }
+      gradient: "from-red-500 to-pink-500",
+    },
   ];
 
   const TeamCard = ({ person, index }: { person: any; index: number }) => (
     <StaggeredItem>
       <ScaleOnHover scale={1.03}>
         <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-sm border-border/50 hover:border-primary/30 relative overflow-hidden h-full">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          />
+          <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <motion.div
             className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${person.gradient} opacity-10 rounded-bl-full`}
             whileHover={{ scale: 1.2, opacity: 0.2 }}
             transition={{ duration: 0.3 }}
           />
-          
+
           <CardContent className="p-8 relative z-10">
             <div className="flex flex-col items-center text-center">
               {/* Avatar with enhanced styling */}
-              <motion.div 
+              <motion.div
                 className="relative mb-6"
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <Avatar className="w-24 h-24 border-4 border-background shadow-lg">
                   <AvatarImage src={person.avatar} alt={person.name} />
-                  <AvatarFallback className={`text-2xl font-bold bg-gradient-to-br ${person.gradient} text-white`}>
-                    {person.name.split(' ').map((n: string) => n[0]).join('')}
+                  <AvatarFallback
+                    className={`text-2xl font-bold bg-gradient-to-br ${person.gradient} text-white`}
+                  >
+                    {person.name
+                      .split(" ")
+                      .map((n: string) => n[0])
+                      .join("")}
                   </AvatarFallback>
                 </Avatar>
                 <motion.div
@@ -131,7 +147,9 @@ const PeopleSection = () => {
               <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {person.name}
               </h3>
-              <div className={`inline-block px-4 py-2 rounded-full bg-gradient-to-r ${person.gradient} text-white text-sm font-semibold mb-3 shadow-md`}>
+              <div
+                className={`inline-block px-4 py-2 rounded-full bg-gradient-to-r ${person.gradient} text-white text-sm font-semibold mb-3 shadow-md`}
+              >
                 {person.role}
               </div>
               <p className="text-sm text-muted-foreground mb-4 font-medium">
@@ -153,8 +171,8 @@ const PeopleSection = () => {
                     transition={{ duration: 0.3, delay: skillIndex * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <Badge 
-                      variant="secondary" 
+                    <Badge
+                      variant="secondary"
                       className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
                     >
                       {skill}
@@ -184,7 +202,11 @@ const PeopleSection = () => {
                     className="h-10 w-10 p-0 hover:bg-blue-600 hover:text-white transition-colors"
                     asChild
                   >
-                    <a href={person.linkedin} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={person.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Linkedin className="w-4 h-4" />
                     </a>
                   </Button>
@@ -196,7 +218,11 @@ const PeopleSection = () => {
                     className="h-10 w-10 p-0 hover:bg-gray-800 hover:text-white transition-colors"
                     asChild
                   >
-                    <a href={person.github} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={person.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="w-4 h-4" />
                     </a>
                   </Button>
@@ -210,22 +236,25 @@ const PeopleSection = () => {
   );
 
   return (
-    <section id="people" className="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+    <section
+      id="people"
+      className="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3] 
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
           className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             scale: [1.2, 1, 1.2],
-            opacity: [0.6, 0.3, 0.6] 
+            opacity: [0.6, 0.3, 0.6],
           }}
           transition={{ duration: 10, repeat: Infinity }}
         />
@@ -234,7 +263,7 @@ const PeopleSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             className="text-5xl md:text-6xl font-bold text-foreground mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -253,21 +282,21 @@ const PeopleSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           />
-          <motion.p 
+          <motion.p
             className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Passionate leaders and innovators driving the future of AI and data science education, 
-            research, and community building.
+            Passionate leaders and innovators driving the future of AI and data
+            science education, research, and community building.
           </motion.p>
         </AnimatedSection>
 
         {/* Leadership Section */}
         <AnimatedSection className="mb-20">
-          <motion.h3 
+          <motion.h3
             className="text-3xl font-bold text-center text-foreground mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -277,7 +306,10 @@ const PeopleSection = () => {
             <Crown className="inline-block w-8 h-8 mr-3 text-yellow-500" />
             Faculty Leadership
           </motion.h3>
-          <StaggeredAnimation className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto" staggerDelay={0.2}>
+          <StaggeredAnimation
+            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            staggerDelay={0.2}
+          >
             {leadership.map((person, index) => (
               <TeamCard key={person.name} person={person} index={index} />
             ))}
@@ -286,7 +318,7 @@ const PeopleSection = () => {
 
         {/* Executive Team Section */}
         <AnimatedSection>
-          <motion.h3 
+          <motion.h3
             className="text-3xl font-bold text-center text-foreground mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -296,40 +328,14 @@ const PeopleSection = () => {
             <Star className="inline-block w-8 h-8 mr-3 text-primary" />
             Student Executive Team
           </motion.h3>
-          <StaggeredAnimation className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.15}>
+          <StaggeredAnimation
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            staggerDelay={0.15}
+          >
             {executiveTeam.map((person, index) => (
               <TeamCard key={person.name} person={person} index={index} />
             ))}
           </StaggeredAnimation>
-        </AnimatedSection>
-
-        {/* Call to Action */}
-        <AnimatedSection className="text-center mt-20">
-          <motion.div
-            className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-3xl font-bold text-foreground mb-4">Join Our Team</h3>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Interested in contributing to our mission? We're always looking for passionate individuals 
-              to join our community and help shape the future of AI and data science.
-            </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                size="lg"
-                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-3 rounded-2xl shadow-lg"
-              >
-                <Users className="w-5 h-5 mr-2" />
-                Get Involved
-              </Button>
-            </motion.div>
-          </motion.div>
         </AnimatedSection>
       </div>
     </section>

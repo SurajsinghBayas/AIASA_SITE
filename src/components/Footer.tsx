@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, MapPin, Phone, Globe, Github, Linkedin, Twitter, Heart } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Globe,
+  Github,
+  Linkedin,
+  Twitter,
+  Heart,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/animated-components";
 
@@ -34,17 +43,17 @@ const Footer = () => {
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3] 
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{ duration: 15, repeat: Infinity }}
         />
         <motion.div
           className="absolute bottom-20 right-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             scale: [1.2, 1, 1.2],
-            opacity: [0.6, 0.3, 0.6] 
+            opacity: [0.6, 0.3, 0.6],
           }}
           transition={{ duration: 12, repeat: Infinity }}
         />
@@ -60,31 +69,40 @@ const Footer = () => {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
-                <img src="/imgs.png" alt="AIASA Logo" className="w-12 h-12 rounded-xl shadow-md" />
+                <img
+                  src="/imgs.png"
+                  alt="AIASA Logo"
+                  className="w-12 h-12 rounded-xl shadow-md"
+                />
               </motion.div>
               <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 AIASA
               </h3>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Artificial Intelligence & Data Science Association - Pioneering the future of technology through 
-              innovative research, collaborative learning, and community building. Join us in shaping tomorrow's 
-              digital landscape.
+              Artificial Intelligence & Data Science Association - Pioneering
+              the future of technology through innovative research,
+              collaborative learning, and community building. Join us in shaping
+              tomorrow's digital landscape.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm">
                 <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                <span className="text-muted-foreground">Computer Science Department, University Campus</span>
+                <span className="text-muted-foreground">
+                  Artificial Intelligence & Data Science Department,NKOCET
+                </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <div className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
                   <Mail className="w-4 h-4 text-secondary" />
                 </div>
-                <span className="text-muted-foreground">aiasa@university.edu</span>
+                <span className="text-muted-foreground">
+                  aiasa@university.edu
+                </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
@@ -97,7 +115,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <AnimatedSection delay={0.2}>
-            <h4 className="text-lg font-semibold text-foreground mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <motion.li
@@ -124,7 +144,9 @@ const Footer = () => {
 
           {/* Resources */}
           <AnimatedSection delay={0.4}>
-            <h4 className="text-lg font-semibold text-foreground mb-6">Resources</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">
+              Resources
+            </h4>
             <ul className="space-y-3">
               {resources.map((link, index) => (
                 <motion.li
@@ -147,18 +169,20 @@ const Footer = () => {
                 </motion.li>
               ))}
             </ul>
-            
+
             {/* Newsletter Signup */}
             <div className="mt-8">
-              <h5 className="text-sm font-semibold text-foreground mb-3">Stay Updated</h5>
+              <h5 className="text-sm font-semibold text-foreground mb-3">
+                Stay Updated
+              </h5>
               <div className="flex gap-2">
                 <Input
                   type="email"
                   placeholder="Enter your email"
                   className="text-sm bg-background/50 border-border/50 focus:border-primary"
                 />
-                <Button 
-                  size="sm" 
+                <Button
+                  size="sm"
                   className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white px-4"
                 >
                   Subscribe
@@ -174,7 +198,9 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               {/* Social Links */}
               <div className="flex items-center gap-4">
-                <span className="text-sm text-muted-foreground mr-2">Follow us:</span>
+                <span className="text-sm text-muted-foreground mr-2">
+                  Follow us:
+                </span>
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}

@@ -14,7 +14,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "sarah.chen@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Vijay Sir",
@@ -25,7 +25,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "m.rodriguez@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Tarang",
@@ -36,10 +36,10 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "emily.wang@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
-      name: "Unkonwn",
+      name: "Samruddhi Gawali ",
       role: "Vice President",
       department: "Artificial Intelligence and Data Science (SY)",
       expertise: ["NLP", "Transformers", "Language Models"],
@@ -47,7 +47,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "alex.thompson@student.university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Unknown",
@@ -58,7 +58,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "raj.patel@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Unknown",
@@ -69,11 +69,11 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "maria.silva@university.edu",
       linkedin: "#",
-      github: "#"
-    }
+      github: "#",
+    },
   ];
 
-    const section2 = [
+  const section2 = [
     {
       name: "",
       role: "HOD",
@@ -83,7 +83,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "sarah.chen@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Vijay Sir",
@@ -94,7 +94,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "m.rodriguez@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Tarang",
@@ -105,7 +105,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "emily.wang@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Unkonwn",
@@ -116,7 +116,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "alex.thompson@student.university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Unknown",
@@ -127,7 +127,7 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "raj.patel@university.edu",
       linkedin: "#",
-      github: "#"
+      github: "#",
     },
     {
       name: "Unknown",
@@ -138,8 +138,8 @@ const PeopleSection = () => {
       avatar: "/placeholder.svg",
       email: "maria.silva@university.edu",
       linkedin: "#",
-      github: "#"
-    }
+      github: "#",
+    },
   ];
 
   return (
@@ -150,50 +150,67 @@ const PeopleSection = () => {
             Our Team
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Meet the brilliant minds driving innovation in artificial intelligence and data science Department.
+            Meet the brilliant minds driving innovation in artificial
+            intelligence and data science Department.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {section1.map((person, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300">
+            <Card
+              key={index}
+              className="group hover:shadow-xl transition-all duration-300"
+            >
               <CardContent className="p-6">
                 <div className="text-center mb-4">
                   <Avatar className="w-24 h-24 mx-auto mb-4 group-hover:scale-105 transition-transform">
                     <AvatarImage src={person.avatar} alt={person.name} />
                     <AvatarFallback className="text-lg bg-gradient-to-br from-primary to-secondary text-primary-foreground">
-                      {person.name.split(' ').map(n => n[0]).join('')}
+                      {person.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="text-xl font-semibold text-foreground mb-1">{person.name}</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-1">
+                    {person.name}
+                  </h3>
                   <p className="text-primary font-medium mb-1">{person.role}</p>
-                  <p className="text-sm text-muted-foreground mb-3">{person.department}</p>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {person.department}
+                  </p>
                 </div>
 
-                <p className="text-sm text-foreground/80 mb-4 line-clamp-2">{person.bio}</p>
+                <p className="text-sm text-foreground/80 mb-4 line-clamp-2">
+                  {person.bio}
+                </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {person.expertise.slice(0, 3).map((skill, skillIndex) => (
-                    <Badge key={skillIndex} variant="secondary" className="text-xs">
+                    <Badge
+                      key={skillIndex}
+                      variant="secondary"
+                      className="text-xs"
+                    >
                       {skill}
                     </Badge>
                   ))}
                 </div>
 
                 <div className="flex justify-center space-x-3 pt-4 border-t border-border">
-                  <a 
+                  <a
                     href={`mailto:${person.email}`}
                     className="p-2 text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Mail className="w-4 h-4" />
                   </a>
-                  <a 
+                  <a
                     href={person.linkedin}
                     className="p-2 text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a 
+                  <a
                     href={person.github}
                     className="p-2 text-muted-foreground hover:text-primary transition-colors"
                   >
@@ -204,8 +221,6 @@ const PeopleSection = () => {
             </Card>
           ))}
         </div>
-        
-        
       </div>
       <div className="container mt-14 mx-auto px-4">
         <div className="text-center mb-16">
@@ -216,44 +231,60 @@ const PeopleSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {section1.map((person, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300">
+            <Card
+              key={index}
+              className="group hover:shadow-xl transition-all duration-300"
+            >
               <CardContent className="p-6">
                 <div className="text-center mb-4">
                   <Avatar className="w-24 h-24 mx-auto mb-4 group-hover:scale-105 transition-transform">
                     <AvatarImage src={person.avatar} alt={person.name} />
                     <AvatarFallback className="text-lg bg-gradient-to-br from-primary to-secondary text-primary-foreground">
-                      {person.name.split(' ').map(n => n[0]).join('')}
+                      {person.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="text-xl font-semibold text-foreground mb-1">{person.name}</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-1">
+                    {person.name}
+                  </h3>
                   <p className="text-primary font-medium mb-1">{person.role}</p>
-                  <p className="text-sm text-muted-foreground mb-3">{person.department}</p>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {person.department}
+                  </p>
                 </div>
 
-                <p className="text-sm text-foreground/80 mb-4 line-clamp-2">{person.bio}</p>
+                <p className="text-sm text-foreground/80 mb-4 line-clamp-2">
+                  {person.bio}
+                </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {person.expertise.slice(0, 3).map((skill, skillIndex) => (
-                    <Badge key={skillIndex} variant="secondary" className="text-xs">
+                    <Badge
+                      key={skillIndex}
+                      variant="secondary"
+                      className="text-xs"
+                    >
                       {skill}
                     </Badge>
                   ))}
                 </div>
 
                 <div className="flex justify-center space-x-3 pt-4 border-t border-border">
-                  <a 
+                  <a
                     href={`mailto:${person.email}`}
                     className="p-2 text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Mail className="w-4 h-4" />
                   </a>
-                  <a 
+                  <a
                     href={person.linkedin}
                     className="p-2 text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a 
+                  <a
                     href={person.github}
                     className="p-2 text-muted-foreground hover:text-primary transition-colors"
                   >
@@ -264,8 +295,6 @@ const PeopleSection = () => {
             </Card>
           ))}
         </div>
-        
-        
       </div>
     </section>
   );
