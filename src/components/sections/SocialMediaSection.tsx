@@ -343,7 +343,7 @@ const SocialMediaSection = () => {
                     </li>
                     <li>
                       <span className="font-semibold">Technical Lead:</span>{" "}
-                      Sawyam Shalgar & Suraj Singh Bayas
+                      Swayam Shalgar & Suraj Singh Bayas
                     </li>
                   </ul>
                 </div>
