@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import RibbonCutting from "@/components/RibbonCutting";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import PeopleSection from "@/components/sections/PeopleSection";
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <RibbonCutting />
       <Navigation />
       <main>
         <HeroSection />
