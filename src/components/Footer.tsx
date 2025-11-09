@@ -108,7 +108,7 @@ const Footer = () => {
                 <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
                   <Phone className="w-4 h-4 text-green-500" />
                 </div>
-                <span className="text-muted-foreground">+91 98765 43210</span>
+                <span className="text-muted-foreground"></span>
               </div>
             </div>
           </AnimatedSection>
